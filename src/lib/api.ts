@@ -1,8 +1,6 @@
 export function getApiBaseUrl(): string {
-  const raw = (
-    process.env.NEXT_PUBLIC_API_URL || "https://assessment.mdeves.site"
-  ).trim();
-  const base = raw.length > 0 ? raw : "https://assessment.mdeves.site";
+  const raw = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000").trim();
+  const base = raw.length > 0 ? raw : "http://localhost:4000";
   return base.replace(/\/$/, "");
 }
 
@@ -30,19 +28,13 @@ async function parseJsonSafe(res: Response): Promise<Json | null> {
   }
 }
 
-export async function apiGet<T>(
-  path: string,
-  token?: string | null,
-): Promise<T> {
+export async function apiGet<T>(path: string, token?: string | null): Promise<T> {
   const headers: Record<string, string> = {
     Accept: "application/json",
   };
   if (token) headers.Authorization = `Bearer ${token}`;
 
-  const res = await fetch(`${getApiBaseUrl()}${path}`, {
-    headers,
-    credentials: "omit",
-  });
+  const res = await fetch(`${getApiBaseUrl()}${path}`, { headers, credentials: "omit" });
   const body = await parseJsonSafe(res);
 
   if (!res.ok) {
