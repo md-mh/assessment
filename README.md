@@ -142,3 +142,7 @@ Auto-save each answer to local storage or IndexedDB immediately.
 Detect connection loss and show an “Offline mode” warning without blocking the candidate.
 Let the candidate continue answering while offline.
 Queue unsynced answers and submit them automatically when the internet returns.
+
+##
+
+[Demo Video](https://drive.google.com/file/d/1bWZhogOZbDEiV125GOxFpHOVc7BX4B5u/view)
