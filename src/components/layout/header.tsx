@@ -66,15 +66,13 @@ export function Header({ variant = "auth" }: HeaderProps) {
             </nav>
           </div>
 
-          <details
-            ref={detailsRef}
-            className="relative shrink-0"
-          >
-            <summary
-              className="flex max-w-[200px] cursor-pointer list-none items-center gap-2 rounded-lg py-1 pl-1 pr-2 text-left transition marker:content-none hover:bg-slate-50 sm:max-w-none sm:gap-3 sm:pr-3 [&::-webkit-details-marker]:hidden"
-            >
+          <details ref={detailsRef} className="relative shrink-0">
+            <summary className="flex max-w-[200px] cursor-pointer list-none items-center gap-2 rounded-lg py-1 pl-1 pr-2 text-left transition marker:content-none hover:bg-slate-50 sm:max-w-none sm:gap-3 sm:pr-3 [&::-webkit-details-marker]:hidden">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-200 text-slate-600">
-                <User className="h-4 w-4 sm:h-[18px] sm:w-[18px]" strokeWidth={1.75} />
+                <User
+                  className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
+                  strokeWidth={1.75}
+                />
               </span>
               <span className="min-w-0 leading-tight max-sm:hidden">
                 {authUser ? (
@@ -109,7 +107,9 @@ export function Header({ variant = "auth" }: HeaderProps) {
                     <p className="truncate text-sm font-semibold text-ink-900">
                       {authUser.fullName}
                     </p>
-                    <p className="truncate text-xs text-slate-500">{authUser.email}</p>
+                    <p className="truncate text-xs text-slate-500">
+                      {authUser.email}
+                    </p>
                   </div>
                   <p className="mt-2 text-xs text-slate-600 sm:mt-0">
                     <span className="font-medium text-slate-400">Role · </span>
@@ -123,7 +123,10 @@ export function Header({ variant = "auth" }: HeaderProps) {
                 onClick={handleLogout}
                 className="flex w-full items-center gap-2 px-3 py-2.5 text-left text-sm text-slate-700 transition hover:bg-slate-50"
               >
-                <LogOut className="h-4 w-4 shrink-0 text-slate-500" aria-hidden />
+                <LogOut
+                  className="h-4 w-4 shrink-0 text-slate-500"
+                  aria-hidden
+                />
                 Log out
               </button>
             </div>
@@ -134,12 +137,15 @@ export function Header({ variant = "auth" }: HeaderProps) {
           <div className="relative z-10 w-[120px] shrink-0">
             <AkijLogo className="h-auto w-[120px]" />
           </div>
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="pointer-events-none absolute inset-0 hidden items-center justify-center md:flex">
             <span className="text-[24px] font-semibold text-ink-700">
               Akij Resource
             </span>
           </div>
-          <div className="relative z-10 ml-auto w-[120px] shrink-0" aria-hidden />
+          <div
+            className="relative z-10 ml-auto w-[120px] shrink-0"
+            aria-hidden
+          />
         </div>
       )}
     </header>
