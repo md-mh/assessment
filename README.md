@@ -1,4 +1,4 @@
-# iBOS Online Assessment Platform
+# iBOS Online Assessment Platform [Live Link](https://assessment-iota-ten.vercel.app/)
 
 Frontend for an online assessment system built with Next.js, TypeScript, Tailwind CSS, Redux Toolkit, and TanStack Query.
 
