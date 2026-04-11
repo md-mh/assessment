@@ -1,17 +1,26 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-type UserRole = "employer" | "candidate";
+export type UserRole = "employer" | "candidate";
+
+/** Profile returned from login/register and GET /api/auth/me */
+export type AuthUser = {
+  id: string;
+  email: string;
+  fullName: string;
+  role: UserRole;
+  createdAt: string;
+};
 
 type AuthState = {
   isAuthenticated: boolean;
-  email: string | null;
-  role: UserRole | null;
+  token: string | null;
+  user: AuthUser | null;
 };
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  email: null,
-  role: null,
+  token: null,
+  user: null,
 };
 
 const authSlice = createSlice({
@@ -20,16 +29,19 @@ const authSlice = createSlice({
   reducers: {
     signIn: (
       state,
-      action: PayloadAction<{ email: string; role: UserRole }>,
+      action: PayloadAction<{
+        token: string | null;
+        user: AuthUser;
+      }>,
     ) => {
       state.isAuthenticated = true;
-      state.email = action.payload.email;
-      state.role = action.payload.role;
+      state.token = action.payload.token;
+      state.user = action.payload.user;
     },
     signOut: (state) => {
       state.isAuthenticated = false;
-      state.email = null;
-      state.role = null;
+      state.token = null;
+      state.user = null;
     },
   },
 });

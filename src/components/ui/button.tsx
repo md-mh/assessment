@@ -10,7 +10,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         type={type}
         className={cn(
-          "inline-flex h-10 w-full items-center justify-center rounded-md bg-brand-gradient px-4 text-sm font-semibold text-white transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70",
+          "inline-flex h-10 w-full items-center justify-center rounded-md bg-[#6633FF] px-4 text-sm font-semibold text-white transition hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6633FF]/40 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70",
           className,
         )}
         {...props}

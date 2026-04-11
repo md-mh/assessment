@@ -3,9 +3,8 @@
 import { PropsWithChildren, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider as ReduxProvider } from "react-redux";
+import { AuthHydrate } from "@/features/auth/components/auth-hydrate";
 import { store } from "@/store";
-import { Header } from "../layout/header";
-import { Footer } from "../layout/footer";
 
 export function AppProviders({ children }: PropsWithChildren) {
   const [queryClient] = useState(
@@ -23,9 +22,7 @@ export function AppProviders({ children }: PropsWithChildren) {
   return (
     <ReduxProvider store={store}>
       <QueryClientProvider client={queryClient}>
-        <Header />
-        {children}
-        <Footer />
+        <AuthHydrate>{children}</AuthHydrate>
       </QueryClientProvider>
     </ReduxProvider>
   );

@@ -2,13 +2,16 @@ import { LoginForm } from "@/features/auth/components/login-form";
 
 export function LoginScreen() {
   return (
-    <section className="flex flex-1 items-center justify-center px-4 py-16 sm:px-6 lg:py-20">
-      <div className="w-full max-w-[372px]">
-        <h1 className="mb-4 text-center text-[18px] font-semibold leading-none text-slate-700">
+    <section className="flex flex-1 items-center justify-center px-4 py-10 sm:px-6 sm:py-14">
+      {/* Reference: 571×373px card at 1440px viewport; fluid below */}
+      <div className="mx-auto w-full max-w-[571px] min-[1440px]:max-w-[571px]">
+        <h1 className="mb-4 text-center text-xl font-semibold tracking-tight text-slate-800 sm:text-2xl min-[1440px]:mb-5 min-[1440px]:text-[24px]">
           Sign In
         </h1>
 
-        <div className="rounded-[12px] border border-slate-200 bg-white px-5 py-5 shadow-[0_8px_24px_rgba(15,23,42,0.05)]">
+        <div
+          className="rounded-xl border border-slate-200/90 bg-white px-5 py-6 shadow-[0_8px_30px_rgba(15,23,42,0.06)] sm:px-7 sm:py-7 min-[1440px]:box-border min-[1440px]:flex min-[1440px]:h-[373px] min-[1440px]:w-[571px] min-[1440px]:max-w-none min-[1440px]:flex-col min-[1440px]:justify-center min-[1440px]:px-11 min-[1440px]:py-9"
+        >
           <LoginForm />
         </div>
       </div>
